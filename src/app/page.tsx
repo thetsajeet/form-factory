@@ -1,3 +1,13 @@
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+
 export default function Home() {
-  return <div className="font-bold uppercase">hello world</div>;
+  return (
+    <div>
+      <span>Welcome to Form Factory</span>
+      <Button size="sm">
+        Get started <ArrowRight className="h-4 w-4" />
+      </Button>
+    </div>
+  );
 }
