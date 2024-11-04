@@ -1,5 +1,5 @@
-import { randomUUID } from "crypto";
 import { create } from "zustand";
+import { v4 as uuid } from "uuid";
 
 export interface FormElement {
   id: string | number;
@@ -13,6 +13,7 @@ type State = {
   formDescription: string;
   currentFormElement: FormElement | null;
   formElements: FormElement[];
+  count: number;
 };
 
 type Action = {
@@ -20,11 +21,12 @@ type Action = {
   setFormDescription: (d: string) => void;
   addFormElement: () => void;
   removeFormElement: (element: FormElement) => void;
-  selectCurrentFormElement: (id: string | number) => void;
+  selectCurrentFormElement: (id: string | number | null) => void;
   updateFormElement: (element: FormElement) => void;
 };
 
 const useStore = create<State & Action>((set, get) => ({
+  count: 0,
   formTitle: "Custom Form",
   formDescription: "Custom Form Description",
   currentFormElement: null,
@@ -33,12 +35,15 @@ const useStore = create<State & Action>((set, get) => ({
   setFormDescription: (d: string) => set(() => ({ formDescription: d })),
   addFormElement: () => {
     const newElement: FormElement = {
-      id: `label-${get().formElements.length}`,
-      label: `label-${get().formElements.length}`,
+      id: uuid(),
+      label: `label-${get().count + 1}`,
       type: "text",
       placeholder: "",
     };
-    set((state) => ({ formElements: [...state.formElements, newElement] }));
+    set((state) => ({
+      count: state.count + 1,
+      formElements: [...state.formElements, newElement],
+    }));
   },
   removeFormElement: (el: FormElement) => {
     set((state) => ({
@@ -58,7 +63,9 @@ const useStore = create<State & Action>((set, get) => ({
 
     set({ formElements: updateItems });
   },
-  selectCurrentFormElement: (id: string | number) => {
+  selectCurrentFormElement: (id: string | number | null) => {
+    if (!id) return set(() => ({ currentFormElement: null }));
+
     const index = get().formElements.findIndex((fe) => fe.id === id);
     if (index === -1) return;
 

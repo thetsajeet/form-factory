@@ -11,6 +11,7 @@ export default function FormStructure() {
   const selectCurrentFormElement = useStore(
     (state) => state.selectCurrentFormElement
   );
+  const currentFormElement = useStore((state) => state.currentFormElement);
 
   if (formElements.length === 0)
     return (
@@ -25,6 +26,8 @@ export default function FormStructure() {
     el: FormElement
   ) {
     event?.stopPropagation();
+    if (currentFormElement && currentFormElement.id === el.id)
+      selectCurrentFormElement(null);
     removeFormElement(el);
   }
 
