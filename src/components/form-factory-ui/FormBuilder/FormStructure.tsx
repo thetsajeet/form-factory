@@ -6,8 +6,11 @@ import { Trash2Icon } from "lucide-react";
 import useStore, { FormElement } from "@/lib/store";
 
 export default function FormStructure() {
-  const { formElements, selectCurrentFormElement, removeFormElement } =
-    useStore();
+  const formElements = useStore((state) => state.formElements);
+  const removeFormElement = useStore((state) => state.removeFormElement);
+  const selectCurrentFormElement = useStore(
+    (state) => state.selectCurrentFormElement
+  );
 
   if (formElements.length === 0)
     return (
@@ -25,14 +28,18 @@ export default function FormStructure() {
     removeFormElement(el);
   }
 
+  function onSelectElement(id: string | number) {
+    selectCurrentFormElement(id);
+  }
+
   return formElements.map((el) => (
     <div
       key={el.id}
       className="border-2 rounded-sm shadow-sm border-slate-300 h-[50px] my-5 px-2 flex flex-col justify-center"
-      onClick={() => selectCurrentFormElement(el)}
+      onClick={() => onSelectElement(el.id)}
     >
       <div className="w-full flex justify-between">
-        <span>{el.name}</span>
+        <span>{el.label}</span>
         <Button
           onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
             handleRemove(event, el)
