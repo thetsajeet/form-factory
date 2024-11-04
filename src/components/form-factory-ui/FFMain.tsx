@@ -1,17 +1,5 @@
-"use client";
-
-import useStore from "@/lib/store";
+import EditFormElement from "./EditFormElement";
 import FormBuilder from "./FormBuilder/FormBuilder";
-
-const EditFormElement = () => {
-  const { currentFormElement } = useStore();
-
-  return currentFormElement ? (
-    <div>editing somethign</div>
-  ) : (
-    <div>nothing to edit</div>
-  );
-};
 
 export default function FFMain() {
   return (
