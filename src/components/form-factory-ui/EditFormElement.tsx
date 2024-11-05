@@ -3,18 +3,10 @@
 import useStore, { FormElement } from "@/lib/store";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormField } from "@/components/ui/form";
 import { Separator } from "@/components/ui/separator";
 import FFSelect from "./FormElements/FFSelect";
+import FFInput from "./FormElements/FFInput";
 
 export default function EditFormElement() {
   const currentFormElement = useStore((state) => state.currentFormElement);
@@ -36,7 +28,6 @@ export default function EditFormElement() {
   const onSubmit = (data: any) => {
     if (!data) return;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const finalData: FormElement = {
       id: data["id"],
       label: data["label"],
@@ -85,36 +76,24 @@ export default function EditFormElement() {
               control={form.control}
               name="label"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="font-medium text-lg pl-1">
-                    Label
-                  </FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormDescription>
-                    Please enter the label for the field.
-                  </FormDescription>
-                  <FormMessage />
-                </FormItem>
+                <FFInput
+                  description="Please enter the field label"
+                  label="Label"
+                  field={field}
+                  type="text"
+                />
               )}
             />
             <FormField
               control={form.control}
               name="placeholder"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="font-medium text-lg pl-1">
-                    Placeholder
-                  </FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormDescription>
-                    Please enter the placeholder for the field.
-                  </FormDescription>
-                  <FormMessage />
-                </FormItem>
+                <FFInput
+                  description="Please enter the field placeholder"
+                  label="Placeholder"
+                  field={field}
+                  type="text"
+                />
               )}
             />
             {form.watch("type") === "select" && (
@@ -122,18 +101,12 @@ export default function EditFormElement() {
                 control={form.control}
                 name="options"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="font-medium text-lg pl-1">
-                      Options
-                    </FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormDescription>
-                      Enter a list of options separated by <b>;</b>
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
+                  <FFInput
+                    description="Enter a list of options separated by ;"
+                    label="Options"
+                    field={field}
+                    type="text"
+                  />
                 )}
               />
             )}

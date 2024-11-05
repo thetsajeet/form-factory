@@ -13,20 +13,14 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
-
-export interface FFSelect {
-  field: any; // change it
-  label: string;
-  description: string;
-  options: string[];
-}
+import { FFSelectInterface } from "@/models/interfaces/FFElements";
 
 export default function FFSelect({
   field,
   label,
   description,
   options,
-}: FFSelect) {
+}: FFSelectInterface) {
   const selectOptionsJSX = options.map((op: string, index: number) => (
     <SelectItem key={index} value={op}>
       {op}
