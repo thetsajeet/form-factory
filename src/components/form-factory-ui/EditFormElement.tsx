@@ -26,8 +26,6 @@ export default function EditFormElement() {
   const currentFormElement = useStore((state) => state.currentFormElement);
   const updateFormElement = useStore((state) => state.updateFormElement);
 
-  console.log(currentFormElement);
-
   const form = useForm({
     values: {
       id: currentFormElement!.id,
@@ -41,8 +39,6 @@ export default function EditFormElement() {
     console.log(data);
     updateFormElement(data as FormElement);
   };
-
-  if (!currentFormElement) return <div>nothing to show</div>;
 
   return (
     <div className="w-full p-2">

@@ -8,7 +8,7 @@ export default function FFHeader() {
   const { formTitle } = useStore();
 
   return (
-    <div className="w-full py-2 px-5 flex bg-zinc-300 align-center justify-between">
+    <div className="w-full py-2 px-5 flex bg-zinc-100 align-center justify-between">
       {/* form header */}
       <span>My Form / {formTitle}</span>
       <Button size="sm">

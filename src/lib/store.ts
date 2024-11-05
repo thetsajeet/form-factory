@@ -70,7 +70,6 @@ const useStore = create<State & Action>((set, get) => ({
     if (index === -1) return;
 
     const element = get().formElements[index];
-    console.log(index);
     set(() => ({
       currentFormElement: {
         ...element,
