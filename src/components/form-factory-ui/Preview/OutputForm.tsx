@@ -2,7 +2,7 @@
 
 import useStore, { FormElement } from "@/lib/store";
 import { useForm } from "react-hook-form";
-import { Input } from "../ui/input";
+import { Input } from "@/components/ui/input";
 import {
   Form,
   FormControl,
@@ -10,11 +10,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../ui/form";
-import { Button } from "../ui/button";
-import { SendHorizonalIcon } from "lucide-react";
-import { ResetIcon } from "@radix-ui/react-icons";
-import { Separator } from "../ui/separator";
+} from "@/components/ui/form";
+import { Button } from "@/components/ui/button";
+import { SendHorizonalIcon, Undo2Icon } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 
 export default function OutputForm() {
   const formTitle = useStore((state) => state.formTitle);
@@ -69,7 +68,7 @@ export default function OutputForm() {
 
   return (
     <div className="w-full flex flex-col">
-      <div className="w-full text-center underline font-semibold text-lg">
+      <div className="w-full text-center capitalize font-semibold text-lg">
         {formTitle}
       </div>
       <div className="mt-2 w-full text-sm font-normal">{formDescription}</div>
@@ -85,7 +84,7 @@ export default function OutputForm() {
               className="bg-slate-100/25 text-zinc-600/25 hover:bg-slate-100 text-zinc-600"
               type="reset"
             >
-              Reset <ResetIcon className="w-5 h-5" />
+              Reset <Undo2Icon className="w-5 h-5" />
             </Button>
           </div>
         </form>

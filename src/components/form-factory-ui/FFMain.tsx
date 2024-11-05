@@ -8,7 +8,7 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
-import OutputForm from "./OutputForm";
+import PreviewWindow from "./Preview/PreviewWindow";
 
 export default function FFMain() {
   const currentFormElement = useStore((state) => state.currentFormElement);
@@ -34,11 +34,7 @@ export default function FFMain() {
       </ResizablePanel>
       <ResizableHandle withHandle />
       <ResizablePanel className="bg-slate-50 min-w-[250px] h-full">
-        <div className="w-full h-full p-2">
-          <div className="w-full h-full flex justify-center text-lg font-medium">
-            <OutputForm />
-          </div>
-        </div>
+        <PreviewWindow />
       </ResizablePanel>
     </ResizablePanelGroup>
   );

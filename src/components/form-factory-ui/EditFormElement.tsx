@@ -67,7 +67,7 @@ export default function EditFormElement() {
                     <SelectContent>
                       <SelectItem value="text">text</SelectItem>
                       <SelectItem value="password">password</SelectItem>
-                      <SelectItem value="select">select</SelectItem>
+                      <SelectItem value="select">email</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormDescription>
