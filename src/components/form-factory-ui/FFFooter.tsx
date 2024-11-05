@@ -3,7 +3,7 @@ import { Heart } from "lucide-react";
 
 export default function FFFooter() {
   return (
-    <div className="flex justify-center w-full bg-zinc-950 text-zinc-100 py-1">
+    <div className="flex justify-center align-middle w-full bg-zinc-950 text-zinc-100 py-1">
       <div>
         Made with <Heart className="w-5 h-5 inline" fill="red" color="red" /> by
         Ajeet{" "}

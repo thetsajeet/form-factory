@@ -8,28 +8,18 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
-
-function Example() {
-  return (
-    <ResizablePanelGroup direction="horizontal">
-      <ResizablePanel>One</ResizablePanel>
-      <ResizableHandle withHandle />
-      <ResizablePanel>Two</ResizablePanel>
-    </ResizablePanelGroup>
-  );
-}
+import OutputForm from "./OutputForm";
 
 export default function FFMain() {
   const currentFormElement = useStore((state) => state.currentFormElement);
-
   return (
     <ResizablePanelGroup className="flex flex-1" direction="horizontal">
       <ResizablePanel className="bg-zinc-50 min-w-[250px]">
         {currentFormElement ? (
           <EditFormElement />
         ) : (
-          <div className="w-full p-2">
-            <div className="w-full flex justify-center items-center text-lg font-medium">
+          <div className="w-full h-full p-2">
+            <div className="w-full h-full flex justify-center items-center text-lg font-medium">
               <InfoCircledIcon className="w-4 h-4 mr-1" />
               Select an element to edit
             </div>
@@ -43,11 +33,10 @@ export default function FFMain() {
         </div>
       </ResizablePanel>
       <ResizableHandle withHandle />
-      <ResizablePanel className="bg-zinc-50 min-w-[250px]">
-        <div className="w-full p-2">
-          <div className="w-full flex justify-center items-center text-lg font-medium">
-            <InfoCircledIcon className="w-4 h-4 mr-1" />
-            Form visible to users
+      <ResizablePanel className="bg-slate-50 min-w-[250px] h-full">
+        <div className="w-full h-full p-2">
+          <div className="w-full h-full flex justify-center text-lg font-medium">
+            <OutputForm />
           </div>
         </div>
       </ResizablePanel>
