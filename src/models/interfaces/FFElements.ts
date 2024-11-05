@@ -12,5 +12,5 @@ export interface FFSelectInterface extends FieldInterface {
 }
 
 export interface FFInputInterface extends FieldInterface {
-  type: "text" | "email" | "password";
+  type: "text" | "email" | "password" | "number";
 }

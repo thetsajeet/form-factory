@@ -1,30 +1,22 @@
 "use client";
+
 import useStore from "@/lib/store";
-import EditFormElement from "./EditFormElement";
+import EditFormElement from "./FormEditor/EditFormElement";
 import FormBuilder from "./FormBuilder/FormBuilder";
-import { InfoCircledIcon } from "@radix-ui/react-icons";
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
 import PreviewWindow from "./Preview/PreviewWindow";
+import FFDirectory from "./FormEditor/FFDirectory";
 
 export default function FFMain() {
   const currentFormElement = useStore((state) => state.currentFormElement);
   return (
     <ResizablePanelGroup className="flex flex-1" direction="horizontal">
       <ResizablePanel className="bg-zinc-50 min-w-[250px]">
-        {currentFormElement ? (
-          <EditFormElement />
-        ) : (
-          <div className="w-full h-full p-2">
-            <div className="w-full h-full flex justify-center items-center text-lg font-medium">
-              <InfoCircledIcon className="w-4 h-4 mr-1" />
-              Select an element to edit
-            </div>
-          </div>
-        )}
+        {currentFormElement ? <EditFormElement /> : <FFDirectory />}
       </ResizablePanel>
       <ResizableHandle withHandle />
       <ResizablePanel className="main flex-1 min-w-[500px]">

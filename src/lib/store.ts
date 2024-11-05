@@ -22,7 +22,9 @@ type State = {
 type Action = {
   setFormTitle: (t: string) => void;
   setFormDescription: (d: string) => void;
-  addFormElement: () => void;
+  addFormElement: (
+    type?: "text" | "email" | "password" | "select" | "number" | null
+  ) => void;
   removeFormElement: (element: FormElement) => void;
   selectCurrentFormElement: (id: string | number | null) => void;
   updateFormElement: (element: FormElement) => void;
@@ -36,13 +38,16 @@ const useStore = create<State & Action>((set, get) => ({
   formElements: [],
   setFormTitle: (t: string) => set(() => ({ formTitle: t })),
   setFormDescription: (d: string) => set(() => ({ formDescription: d })),
-  addFormElement: () => {
+  addFormElement: (
+    type?: "text" | "email" | "password" | "select" | "number" | null
+  ) => {
     const newElement: FormElement = {
       id: uuid(),
       label: `label-${get().count + 1}`,
       name: `label-${get().count + 1}`,
-      type: "text",
+      type: type ? type : "text",
       placeholder: "",
+      options: [],
     };
     set((state) => ({
       count: state.count + 1,

@@ -5,12 +5,16 @@ import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Form, FormField } from "@/components/ui/form";
 import { Separator } from "@/components/ui/separator";
-import FFSelect from "./FormElements/FFSelect";
-import FFInput from "./FormElements/FFInput";
+import FFSelect from "../FormElements/FFSelect";
+import FFInput from "../FormElements/FFInput";
+import { X } from "lucide-react";
 
 export default function EditFormElement() {
   const currentFormElement = useStore((state) => state.currentFormElement);
   const updateFormElement = useStore((state) => state.updateFormElement);
+  const selectCurrentFormElement = useStore(
+    (state) => state.selectCurrentFormElement
+  );
 
   const form = useForm({
     values: {
@@ -52,7 +56,14 @@ export default function EditFormElement() {
 
   return (
     <div className="w-full p-2">
-      <div className="text-lg text-center font-medium">Set form parameters</div>
+      <div className="flex items-center">
+        <span className="text-lg font-medium flex-1 text-center">
+          Set form parameters
+        </span>
+        <Button variant="ghost" onClick={() => selectCurrentFormElement(null)}>
+          <X className="w-4 h-4" />
+        </Button>
+      </div>
       <Separator className="bg-zinc-900 my-2" />
       <div className="space-y-4">
         <Form {...form}>

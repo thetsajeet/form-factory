@@ -1,0 +1,38 @@
+"use client";
+
+import { ArrowDown01Icon, AtSign, SquareAsterisk, Type } from "lucide-react";
+import Component, { ComponentInteface } from "./Component";
+import { DropdownMenuIcon } from "@radix-ui/react-icons";
+
+export default function ComponentList() {
+  const components: ComponentInteface[] = [
+    {
+      name: "text",
+      icon: <Type color="#09090B" />,
+    },
+    {
+      name: "email",
+      icon: <AtSign color="#09090B" />,
+    },
+    {
+      name: "password",
+      icon: <SquareAsterisk color="#09090B" />,
+    },
+    {
+      name: "select",
+      icon: <DropdownMenuIcon color="#09090B" />,
+    },
+    {
+      name: "number",
+      icon: <ArrowDown01Icon color="#09090B" />,
+    },
+  ];
+
+  return (
+    <div className="grid grid-cols-2 justify-items-center gap-y-2 bg-zinc-100 py-4">
+      {components.map((comp: ComponentInteface, index: number) => (
+        <Component key={index} name={comp.name} icon={comp.icon} />
+      ))}
+    </div>
+  );
+}
