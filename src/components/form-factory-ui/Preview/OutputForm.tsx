@@ -14,12 +14,18 @@ import {
 import { Button } from "@/components/ui/button";
 import { SendHorizonalIcon, Undo2Icon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "@/components/ui/select";
 
 export default function OutputForm() {
   const formTitle = useStore((state) => state.formTitle);
   const formDescription = useStore((state) => state.formDescription);
   const formElements = useStore((state) => state.formElements);
-
   const form = useForm({});
 
   // TODO: Unregister or remove the old labels
@@ -35,7 +41,8 @@ export default function OutputForm() {
     );
 
   const formContent = formElements.map((fe: FormElement) => {
-    const { type, id, label, placeholder } = fe;
+    const { type, id, label, placeholder, defaultValue, options } = fe;
+    console.log(options, type);
     switch (type) {
       case "text":
       case "email":
@@ -45,7 +52,7 @@ export default function OutputForm() {
             key={id}
             control={form.control}
             name={label}
-            defaultValue=""
+            defaultValue={defaultValue}
             render={({ field }) => (
               <FormItem className="my-1">
                 <FormLabel className="font-medium text-lg pl-1">
@@ -60,7 +67,34 @@ export default function OutputForm() {
           />
         );
       case "select":
-        return <div key={id}>Select field</div>;
+        return (
+          <FormField
+            control={form.control}
+            name="type"
+            key={id}
+            render={({ field }) => (
+              <FormItem key={id}>
+                <FormLabel className="font-medium text-lg pl-1">
+                  {label}
+                </FormLabel>
+                <Select onValueChange={field.onChange} value={field.value}>
+                  <FormControl>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder={placeholder} />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    {options?.map((op: string) => (
+                      <SelectItem value={op} key={op}>
+                        {op}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </FormItem>
+            )}
+          />
+        );
       default:
         return <div key={id}>Unknown input type</div>;
     }

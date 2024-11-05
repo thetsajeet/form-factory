@@ -4,8 +4,11 @@ import { v4 as uuid } from "uuid";
 export interface FormElement {
   id: string | number;
   label: string;
+  name: string;
   type: string;
-  placeholder: string;
+  placeholder?: string;
+  options?: string[];
+  defaultValue?: string;
 }
 
 type State = {
@@ -37,6 +40,7 @@ const useStore = create<State & Action>((set, get) => ({
     const newElement: FormElement = {
       id: uuid(),
       label: `label-${get().count + 1}`,
+      name: `label-${get().count + 1}`,
       type: "text",
       placeholder: "",
     };
