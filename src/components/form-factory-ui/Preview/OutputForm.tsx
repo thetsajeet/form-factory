@@ -60,9 +60,9 @@ export default function OutputForm() {
           />
         );
       case "select":
-        return <div>Select field</div>;
+        return <div key={id}>Select field</div>;
       default:
-        return <div>Unknown input type</div>;
+        return <div key={id}>Unknown input type</div>;
     }
   });
 
