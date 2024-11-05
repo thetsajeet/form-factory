@@ -13,12 +13,13 @@ export default function FFInput({
   description,
   label,
   type,
+  placeholder,
 }: FFInputInterface) {
   return (
     <FormItem>
       <FormLabel className="font-medium text-lg pl-1">{label}</FormLabel>
       <FormControl>
-        <Input {...field} type={type} />
+        <Input {...field} placeholder={placeholder} type={type} />
       </FormControl>
       <FormDescription>{description}</FormDescription>
       <FormMessage />

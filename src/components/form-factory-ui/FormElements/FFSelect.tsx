@@ -20,6 +20,7 @@ export default function FFSelect({
   label,
   description,
   options,
+  placeholder,
 }: FFSelectInterface) {
   const selectOptionsJSX = options.map((op: string, index: number) => (
     <SelectItem key={index} value={op}>
@@ -33,12 +34,12 @@ export default function FFSelect({
       <Select onValueChange={field.onChange} value={field.value}>
         <FormControl>
           <SelectTrigger>
-            <SelectValue />
+            <SelectValue placeholder={placeholder} />
           </SelectTrigger>
         </FormControl>
         <SelectContent>{selectOptionsJSX}</SelectContent>
       </Select>
-      <FormDescription>{description}</FormDescription>
+      {description && <FormDescription>{description}</FormDescription>}
       <FormMessage />
     </FormItem>
   );

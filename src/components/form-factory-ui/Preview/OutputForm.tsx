@@ -2,25 +2,12 @@
 
 import useStore, { FormElement } from "@/lib/store";
 import { useForm } from "react-hook-form";
-import { Input } from "@/components/ui/input";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormField } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { SendHorizonalIcon, Undo2Icon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-} from "@/components/ui/select";
+import FFSelect from "../FormElements/FFSelect";
+import FFInput from "../FormElements/FFInput";
 
 export default function OutputForm() {
   const formTitle = useStore((state) => state.formTitle);
@@ -29,6 +16,7 @@ export default function OutputForm() {
   const form = useForm({});
 
   // TODO: Unregister or remove the old labels
+  // TODO: Change the data type
   const onSubmit = (data: unknown) => {
     console.log("c", data);
   };
@@ -42,7 +30,7 @@ export default function OutputForm() {
 
   const formContent = formElements.map((fe: FormElement) => {
     const { type, id, label, placeholder, defaultValue, options } = fe;
-    console.log(options, type);
+
     switch (type) {
       case "text":
       case "email":
@@ -52,17 +40,15 @@ export default function OutputForm() {
             key={id}
             control={form.control}
             name={label}
-            defaultValue={defaultValue}
+            defaultValue={defaultValue || ""}
             render={({ field }) => (
-              <FormItem className="my-1">
-                <FormLabel className="font-medium text-lg pl-1">
-                  {label}
-                </FormLabel>
-                <FormControl>
-                  <Input type={type} placeholder={placeholder} {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
+              <FFInput
+                field={field}
+                label={label}
+                type={type}
+                key={id}
+                placeholder={placeholder}
+              />
             )}
           />
         );
@@ -73,25 +59,13 @@ export default function OutputForm() {
             name="type"
             key={id}
             render={({ field }) => (
-              <FormItem key={id}>
-                <FormLabel className="font-medium text-lg pl-1">
-                  {label}
-                </FormLabel>
-                <Select onValueChange={field.onChange} value={field.value}>
-                  <FormControl>
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder={placeholder} />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {options?.map((op: string) => (
-                      <SelectItem value={op} key={op}>
-                        {op}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </FormItem>
+              <FFSelect
+                key={id}
+                label={label}
+                field={field}
+                options={options!}
+                placeholder={placeholder}
+              />
             )}
           />
         );

@@ -3,7 +3,8 @@
 export interface FieldInterface {
   field: any; //TODO: Choose a field type
   label: string;
-  description: string;
+  description?: string;
+  placeholder?: string;
 }
 
 export interface FFSelectInterface extends FieldInterface {
