@@ -5,11 +5,11 @@ import {
   AtSign,
   Globe2Icon,
   LetterTextIcon,
+  MenuIcon,
   SquareAsterisk,
   Type,
 } from "lucide-react";
 import Component, { ComponentInteface } from "./Component";
-import { DropdownMenuIcon } from "@radix-ui/react-icons";
 
 export default function ComponentList() {
   const components: ComponentInteface[] = [
@@ -27,7 +27,7 @@ export default function ComponentList() {
     },
     {
       name: "select",
-      icon: <DropdownMenuIcon color="#09090B" />,
+      icon: <MenuIcon color="#09090B" />,
     },
     {
       name: "textarea",
@@ -44,7 +44,7 @@ export default function ComponentList() {
   ];
 
   return (
-    <div className="grid grid-cols-1 @sm:grid-cols-2 content-start justify-items-center gap-y-2 bg-zinc-100 py-4 h-full overflow-y-auto">
+    <div className="py-2 space-y-1 grid grid-cols-1 @sm:grid-cols-2 content-start justify-items-center bg-zinc-100 ">
       {components.map((comp: ComponentInteface, index: number) => (
         <Component key={index} name={comp.name} icon={comp.icon} />
       ))}

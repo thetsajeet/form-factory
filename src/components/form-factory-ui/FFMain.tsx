@@ -14,7 +14,7 @@ import FFDirectory from "./FormEditor/FFDirectory";
 export default function FFMain() {
   const currentFormElement = useStore((state) => state.currentFormElement);
   return (
-    <ResizablePanelGroup className="flex flex-1" direction="horizontal">
+    <ResizablePanelGroup className="flex flex-1 p-0" direction="horizontal">
       <ResizablePanel className="bg-zinc-50 min-w-[250px]">
         {currentFormElement ? <EditFormElement /> : <FFDirectory />}
       </ResizablePanel>
@@ -25,7 +25,7 @@ export default function FFMain() {
         </div>
       </ResizablePanel>
       <ResizableHandle withHandle />
-      <ResizablePanel className="bg-slate-50 min-w-[250px] h-full">
+      <ResizablePanel className="bg-slate-50 min-w-[250px] h-full overflow-y-auto">
         <PreviewWindow />
       </ResizablePanel>
     </ResizablePanelGroup>

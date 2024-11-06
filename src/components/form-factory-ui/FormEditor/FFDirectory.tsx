@@ -10,7 +10,7 @@ export default function FFDirectory() {
   const addFormElement = useStore((state) => state.addFormElement);
 
   return (
-    <div className="w-full h-full p-2 @container">
+    <div className="w-full h-full overflow-y-auto @container">
       <div className="flex items-center">
         <span className="text-lg font-medium flex-1 text-center">
           Components
