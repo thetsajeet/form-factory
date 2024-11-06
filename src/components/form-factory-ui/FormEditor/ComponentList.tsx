@@ -3,6 +3,7 @@
 import {
   ArrowDown01Icon,
   AtSign,
+  Globe2Icon,
   LetterTextIcon,
   SquareAsterisk,
   Type,
@@ -35,6 +36,10 @@ export default function ComponentList() {
     {
       name: "number",
       icon: <ArrowDown01Icon color="#09090B" />,
+    },
+    {
+      name: "url",
+      icon: <Globe2Icon color="#09090B" />,
     },
   ];
 

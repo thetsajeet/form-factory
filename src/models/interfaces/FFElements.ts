@@ -6,6 +6,7 @@ export type FormElementTypes =
   | "password"
   | "select"
   | "number"
+  | "url"
   | "textarea";
 
 export interface FieldInterface {

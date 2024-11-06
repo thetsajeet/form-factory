@@ -37,6 +37,7 @@ export default function OutputForm() {
       case "text":
       case "email":
       case "number":
+      case "url":
       case "password":
         return (
           <FormField
