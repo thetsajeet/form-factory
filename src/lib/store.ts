@@ -52,6 +52,7 @@ const useStore = create<State & Action>((set, get) => ({
     set((state) => ({
       count: state.count + 1,
       formElements: [...state.formElements, newElement],
+      currentFormElement: newElement,
     }));
   },
   removeFormElement: (el: FormElement) => {
