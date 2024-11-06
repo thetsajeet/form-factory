@@ -8,6 +8,7 @@ import { FORM_TYPES } from "@/models/constants/formTypes";
 import { useDrop } from "react-dnd";
 import useStore from "@/lib/store";
 import { FormElementTypes } from "@/models/interfaces/FFElements";
+import { cn } from "@/lib/utils";
 
 export default function FormBuilder() {
   const addFormElement = useStore((state) => state.addFormElement);
@@ -21,18 +22,23 @@ export default function FormBuilder() {
   }));
 
   return (
-    <Card className="my-2">
-      <CardHeader>
-        <FormHeader />
-      </CardHeader>
-      <Separator className="my-2" />
-      <CardContent className="pb-0">
-        <div className="contents" ref={drop}>
+    <div ref={drop}>
+      <Card className="my-2">
+        <CardHeader>
+          <FormHeader />
+        </CardHeader>
+        <Separator className="my-2" />
+        <CardContent
+          className={cn(
+            "pb-0",
+            isOver ? "border-2 border-dashed border-zinc-900 bg-stone-400" : ""
+          )}
+        >
           <FormStructure />
-        </div>
-      </CardContent>
-      <Separator className="my-2" />
-      <CardFooter></CardFooter>
-    </Card>
+        </CardContent>
+        <Separator className="my-2" />
+        <CardFooter></CardFooter>
+      </Card>
+    </div>
   );
 }
