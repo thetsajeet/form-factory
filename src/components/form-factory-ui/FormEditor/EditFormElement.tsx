@@ -1,6 +1,6 @@
 "use client";
 
-import useStore, { FormElement } from "@/lib/store";
+import useStore from "@/lib/store";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Form, FormField } from "@/components/ui/form";
@@ -8,6 +8,8 @@ import { Separator } from "@/components/ui/separator";
 import FFSelect from "../FormElements/FFSelect";
 import FFInput from "../FormElements/FFInput";
 import { X } from "lucide-react";
+import { FormElement } from "@/models/interfaces/FFElements";
+import { FORM_TYPES } from "@/models/constants/formTypes";
 
 export default function EditFormElement() {
   const currentFormElement = useStore((state) => state.currentFormElement);
@@ -15,6 +17,7 @@ export default function EditFormElement() {
   const selectCurrentFormElement = useStore(
     (state) => state.selectCurrentFormElement
   );
+  const availableTypeOptions = Object.values(FORM_TYPES);
 
   const form = useForm({
     values: {
@@ -79,7 +82,7 @@ export default function EditFormElement() {
                   field={field}
                   label="Type"
                   description="Please select the field type"
-                  options={["text", "email", "password", "select"]}
+                  options={availableTypeOptions}
                 />
               )}
             />

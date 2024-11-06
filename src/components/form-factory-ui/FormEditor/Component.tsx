@@ -1,9 +1,10 @@
 "use client";
 
 import useStore from "@/lib/store";
+import { FormElementTypes } from "@/models/interfaces/FFElements";
 
 export interface ComponentInteface {
-  name: "text" | "email" | "password" | "select" | "number";
+  name: FormElementTypes;
   icon: React.ReactNode;
 }
 

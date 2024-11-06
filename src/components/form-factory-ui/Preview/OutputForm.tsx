@@ -9,6 +9,7 @@ import { Separator } from "@/components/ui/separator";
 import FFSelect from "../FormElements/FFSelect";
 import FFInput from "../FormElements/FFInput";
 import { FormElement } from "@/models/interfaces/FFElements";
+import FFTextarea from "../FormElements/FFTextarea";
 
 export default function OutputForm() {
   const formTitle = useStore((state) => state.formTitle);
@@ -58,7 +59,7 @@ export default function OutputForm() {
         return (
           <FormField
             control={form.control}
-            name="type"
+            name={label}
             key={id}
             render={({ field }) => (
               <FFSelect
@@ -66,6 +67,22 @@ export default function OutputForm() {
                 label={label}
                 field={field}
                 options={options!}
+                placeholder={placeholder}
+              />
+            )}
+          />
+        );
+      case "textarea":
+        return (
+          <FormField
+            key={id}
+            control={form.control}
+            name={label}
+            render={({ field }) => (
+              <FFTextarea
+                key={id}
+                label={label}
+                field={field}
                 placeholder={placeholder}
               />
             )}

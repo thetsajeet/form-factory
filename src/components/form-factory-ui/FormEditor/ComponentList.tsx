@@ -1,6 +1,12 @@
 "use client";
 
-import { ArrowDown01Icon, AtSign, SquareAsterisk, Type } from "lucide-react";
+import {
+  ArrowDown01Icon,
+  AtSign,
+  LetterTextIcon,
+  SquareAsterisk,
+  Type,
+} from "lucide-react";
 import Component, { ComponentInteface } from "./Component";
 import { DropdownMenuIcon } from "@radix-ui/react-icons";
 
@@ -21,6 +27,10 @@ export default function ComponentList() {
     {
       name: "select",
       icon: <DropdownMenuIcon color="#09090B" />,
+    },
+    {
+      name: "textarea",
+      icon: <LetterTextIcon color="#09090B" />,
     },
     {
       name: "number",
