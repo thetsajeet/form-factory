@@ -1,17 +1,17 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Cross, CrossIcon, Info, Trash2Icon, X } from "lucide-react";
-import useStore, { FormElement } from "@/lib/store";
+import { Info, Trash2Icon, X } from "lucide-react";
+import useStore from "@/lib/store";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useState } from "react";
+import { FormElement } from "@/models/interfaces/FFElements";
 
 export default function FormStructure() {
   const formElements = useStore((state) => state.formElements);
