@@ -29,7 +29,7 @@ export default function ComponentList() {
   ];
 
   return (
-    <div className="grid grid-cols-2 justify-items-center gap-y-2 bg-zinc-100 py-4">
+    <div className="grid grid-cols-1 @sm:grid-cols-2 justify-items-center gap-y-2 bg-zinc-100 py-4">
       {components.map((comp: ComponentInteface, index: number) => (
         <Component key={index} name={comp.name} icon={comp.icon} />
       ))}

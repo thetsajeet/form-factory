@@ -14,3 +14,21 @@ export interface FFSelectInterface extends FieldInterface {
 export interface FFInputInterface extends FieldInterface {
   type: "text" | "email" | "password" | "number";
 }
+
+export type FormElementTypes =
+  | "text"
+  | "email"
+  | "password"
+  | "select"
+  | "number"
+  | "textarea";
+
+export interface FormElement {
+  id: string | number;
+  label: string;
+  name: string;
+  type: FormElementTypes;
+  placeholder?: string;
+  options?: string[];
+  defaultValue?: string;
+}

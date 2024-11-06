@@ -1,15 +1,6 @@
 import { create } from "zustand";
 import { v4 as uuid } from "uuid";
-
-export interface FormElement {
-  id: string | number;
-  label: string;
-  name: string;
-  type: string;
-  placeholder?: string;
-  options?: string[];
-  defaultValue?: string;
-}
+import { FormElement, FormElementTypes } from "@/models/interfaces/FFElements";
 
 type State = {
   formTitle: string;
@@ -22,9 +13,7 @@ type State = {
 type Action = {
   setFormTitle: (t: string) => void;
   setFormDescription: (d: string) => void;
-  addFormElement: (
-    type?: "text" | "email" | "password" | "select" | "number" | null
-  ) => void;
+  addFormElement: (type?: FormElementTypes | null) => void;
   removeFormElement: (element: FormElement) => void;
   selectCurrentFormElement: (id: string | number | null) => void;
   updateFormElement: (element: FormElement) => void;
@@ -38,9 +27,7 @@ const useStore = create<State & Action>((set, get) => ({
   formElements: [],
   setFormTitle: (t: string) => set(() => ({ formTitle: t })),
   setFormDescription: (d: string) => set(() => ({ formDescription: d })),
-  addFormElement: (
-    type?: "text" | "email" | "password" | "select" | "number" | null
-  ) => {
+  addFormElement: (type?: FormElementTypes | null) => {
     const newElement: FormElement = {
       id: uuid(),
       label: `label-${get().count + 1}`,
