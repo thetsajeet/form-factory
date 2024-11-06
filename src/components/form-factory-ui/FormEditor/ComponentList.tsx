@@ -44,7 +44,7 @@ export default function ComponentList() {
   ];
 
   return (
-    <div className="py-2 space-y-1 grid grid-cols-1 @sm:grid-cols-2 content-start justify-items-center bg-zinc-100 ">
+    <div className="pt-2 pb-20 h-full overflow-y-auto grid grid-cols-1 @sm:grid-cols-2 space-y-1 content-start justify-items-center bg-zinc-100 ">
       {components.map((comp: ComponentInteface, index: number) => (
         <Component key={index} name={comp.name} icon={comp.icon} />
       ))}
