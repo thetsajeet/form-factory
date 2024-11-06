@@ -7,7 +7,7 @@ import { Separator } from "@/components/ui/separator";
 
 export default function FormBuilder() {
   return (
-    <Card>
+    <Card className="my-2">
       <CardHeader>
         <FormHeader />
       </CardHeader>

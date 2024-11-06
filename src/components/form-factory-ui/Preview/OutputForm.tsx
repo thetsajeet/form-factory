@@ -1,6 +1,6 @@
 "use client";
 
-import useStore, { FormElement } from "@/lib/store";
+import useStore from "@/lib/store";
 import { useForm } from "react-hook-form";
 import { Form, FormField } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
@@ -8,6 +8,7 @@ import { SendHorizonalIcon, Undo2Icon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import FFSelect from "../FormElements/FFSelect";
 import FFInput from "../FormElements/FFInput";
+import { FormElement } from "@/models/interfaces/FFElements";
 
 export default function OutputForm() {
   const formTitle = useStore((state) => state.formTitle);

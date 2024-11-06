@@ -19,8 +19,8 @@ export default function FFMain() {
         {currentFormElement ? <EditFormElement /> : <FFDirectory />}
       </ResizablePanel>
       <ResizableHandle withHandle />
-      <ResizablePanel className="main flex-1 min-w-[500px]">
-        <div className="pt-5 mx-auto w-[500px]">
+      <ResizablePanel className="main flex-1 min-w-[500px] ">
+        <div className="pt-5 mx-auto w-[500px] h-full overflow-y-auto">
           <FormBuilder />
         </div>
       </ResizablePanel>

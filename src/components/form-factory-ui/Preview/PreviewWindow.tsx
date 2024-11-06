@@ -8,7 +8,7 @@ export default function PreviewWindow() {
           form-factory.com
         </div>
       </div>
-      <div className="w-full h-full mt-2 flex justify-center text-lg font-medium px-3">
+      <div className="w-full my-2 flex justify-center text-lg font-medium px-3">
         <OutputForm />
       </div>
     </div>
