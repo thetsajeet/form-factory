@@ -50,7 +50,9 @@ export default function EditFormElement() {
         finalData["options"] = ops.split(";");
         continue;
       }
-      if (key === "placeholder" || key === "defaultValue")
+      if (key === "placeholder" && data.type !== "switch")
+        finalData[key] = value as string;
+      if (key === "defaultValue" && data.type !== "switch")
         finalData[key] = value as string;
     }
 
@@ -98,18 +100,20 @@ export default function EditFormElement() {
                 />
               )}
             />
-            <FormField
-              control={form.control}
-              name="placeholder"
-              render={({ field }) => (
-                <FFInput
-                  description="Please enter the field placeholder"
-                  label="Placeholder"
-                  field={field}
-                  type="text"
-                />
-              )}
-            />
+            {form.watch("type") !== "switch" && (
+              <FormField
+                control={form.control}
+                name="placeholder"
+                render={({ field }) => (
+                  <FFInput
+                    description="Please enter the field placeholder"
+                    label="Placeholder"
+                    field={field}
+                    type="text"
+                  />
+                )}
+              />
+            )}
             {form.watch("type") === "select" && (
               <FormField
                 control={form.control}

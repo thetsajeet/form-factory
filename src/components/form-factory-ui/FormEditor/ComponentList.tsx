@@ -7,6 +7,7 @@ import {
   LetterTextIcon,
   MenuIcon,
   SquareAsterisk,
+  ToggleLeftIcon,
   Type,
 } from "lucide-react";
 import Component, { ComponentInteface } from "./Component";
@@ -40,6 +41,10 @@ export default function ComponentList() {
     {
       name: "url",
       icon: <Globe2Icon color="#09090B" />,
+    },
+    {
+      name: "switch",
+      icon: <ToggleLeftIcon color="#09090B" />,
     },
   ];
 

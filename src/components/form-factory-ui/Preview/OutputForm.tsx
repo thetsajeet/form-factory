@@ -10,6 +10,7 @@ import FFSelect from "../FormElements/FFSelect";
 import FFInput from "../FormElements/FFInput";
 import { FormElement } from "@/models/interfaces/FFElements";
 import FFTextarea from "../FormElements/FFTextarea";
+import FFSwitch from "../FormElements/FFSwitch";
 
 export default function OutputForm() {
   const formTitle = useStore((state) => state.formTitle);
@@ -50,7 +51,6 @@ export default function OutputForm() {
                 field={field}
                 label={label}
                 type={type}
-                key={id}
                 placeholder={placeholder}
               />
             )}
@@ -64,7 +64,6 @@ export default function OutputForm() {
             key={id}
             render={({ field }) => (
               <FFSelect
-                key={id}
                 label={label}
                 field={field}
                 options={options!}
@@ -81,12 +80,20 @@ export default function OutputForm() {
             name={label}
             render={({ field }) => (
               <FFTextarea
-                key={id}
                 label={label}
                 field={field}
                 placeholder={placeholder}
               />
             )}
+          />
+        );
+      case "switch":
+        return (
+          <FormField
+            control={form.control}
+            name={label}
+            key={id}
+            render={({ field }) => <FFSwitch label={label} field={field} />}
           />
         );
       default:

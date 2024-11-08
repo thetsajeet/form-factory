@@ -28,11 +28,12 @@ const useStore = create<State & Action>((set, get) => ({
   setFormTitle: (t: string) => set(() => ({ formTitle: t })),
   setFormDescription: (d: string) => set(() => ({ formDescription: d })),
   addFormElement: (type?: FormElementTypes | null) => {
+    const elType = type ? type : "text";
     const newElement: FormElement = {
       id: uuid(),
-      label: `label-${get().count + 1}`,
-      name: `label-${get().count + 1}`,
-      type: type ? type : "text",
+      label: `${elType}-${get().count + 1}`,
+      name: `${elType}-${get().count + 1}`,
+      type: elType,
       placeholder: "",
       options: [],
     };

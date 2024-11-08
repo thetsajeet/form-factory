@@ -8,4 +8,5 @@ export const FORM_TYPES: { [key: string]: FormElementTypes } = {
   EMAIL: "email",
   NUMBER: "number",
   URL: "url",
+  SWITCH: "switch",
 };

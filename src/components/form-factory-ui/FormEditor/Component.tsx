@@ -1,7 +1,6 @@
 "use client";
 
 import useStore from "@/lib/store";
-import { FORM_TYPES } from "@/models/constants/formTypes";
 import { FormElementTypes } from "@/models/interfaces/FFElements";
 import { useDrag } from "react-dnd";
 

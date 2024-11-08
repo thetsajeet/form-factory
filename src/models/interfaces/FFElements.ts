@@ -7,6 +7,7 @@ export type FormElementTypes =
   | "select"
   | "number"
   | "url"
+  | "switch"
   | "textarea";
 
 export interface FieldInterface {
@@ -26,6 +27,10 @@ export interface FFInputInterface extends FieldInterface {
 
 export interface FFTextareaInterface extends FieldInterface {
   resize?: boolean;
+}
+
+export interface FFSwitchInterface extends FieldInterface {
+  checked?: boolean;
 }
 
 export interface FormElement {
