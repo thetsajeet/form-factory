@@ -2,6 +2,8 @@
 
 Create rich sharable forms using drag-and-drop.
 
+![mockup](/resources/home-page.png)
+
 ## Tech stack
 
 - NextJS
@@ -25,6 +27,7 @@ npm run dev
 - [ ] checkbox
 - [x] text
 - [ ] radio
+- [x] switch
 - [x] number
 - [x] textarea
 - [x] email
