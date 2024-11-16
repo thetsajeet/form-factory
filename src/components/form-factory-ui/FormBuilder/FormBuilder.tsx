@@ -21,8 +21,8 @@ export default function FormBuilder() {
     }),
   }));
 
-  return (
-    <div ref={drop} className="contents">
+  return drop(
+    <div className="contents">
       <Card className="flex flex-col my-2 h-full min-h-0">
         <CardHeader>
           <FormHeader />

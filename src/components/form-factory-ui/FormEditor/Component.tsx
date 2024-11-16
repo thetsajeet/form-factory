@@ -20,10 +20,9 @@ export default function Component({ name, icon }: ComponentInteface) {
     }),
   }));
 
-  return (
+  return drag(
     <div
       className="w-11/12 flex h-[90px] flex-col items-center bg-1 bg-zinc-200 rounded-lg hover:bg-zinc-300 cursor-move"
-      ref={drag}
       style={{
         opacity: isDragging ? 0.5 : 1,
       }}

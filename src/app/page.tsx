@@ -1,3 +1,5 @@
+"use client";
+
 import FFFooter from "@/components/form-factory-ui/FFFooter";
 import FFormHeader from "@/components/form-factory-ui/FFHeader";
 import FFMain from "@/components/form-factory-ui/FFMain";

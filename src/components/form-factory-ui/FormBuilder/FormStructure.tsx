@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Info, InfoIcon, PlusCircleIcon, Trash2Icon, X } from "lucide-react";
+import { InfoIcon, PlusCircleIcon, Trash2Icon, X } from "lucide-react";
 import useStore from "@/lib/store";
 import {
   Dialog,
