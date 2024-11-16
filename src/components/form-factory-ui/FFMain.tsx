@@ -18,17 +18,21 @@ export default function FFMain() {
   return (
     <DndProvider backend={HTML5Backend}>
       <ResizablePanelGroup className="flex flex-1 p-0" direction="horizontal">
-        <ResizablePanel className="bg-zinc-50 min-w-[250px]">
+        <ResizablePanel defaultSize={25} minSize={10} className="bg-zinc-50">
           {currentFormElement ? <EditFormElement /> : <FFDirectory />}
         </ResizablePanel>
         <ResizableHandle withHandle />
-        <ResizablePanel className="main flex-1 min-w-[500px] ">
+        <ResizablePanel defaultSize={50} minSize={35} className="main flex-1 ">
           <div className="pt-5 mx-auto w-[500px] h-full overflow-y-auto">
             <FormBuilder />
           </div>
         </ResizablePanel>
         <ResizableHandle withHandle />
-        <ResizablePanel className="bg-slate-50 min-w-[250px] h-full overflow-y-auto">
+        <ResizablePanel
+          defaultSize={25}
+          minSize={20}
+          className="bg-slate-50 h-full overflow-y-auto"
+        >
           <PreviewWindow />
         </ResizablePanel>
       </ResizablePanelGroup>
