@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Info, Trash2Icon, X } from "lucide-react";
+import { Info, InfoIcon, PlusCircleIcon, Trash2Icon, X } from "lucide-react";
 import useStore from "@/lib/store";
 import {
   Dialog,
@@ -27,9 +27,21 @@ export default function FormStructure() {
 
   if (formElements.length === 0)
     return (
-      <div className="w-full flex justify-center items-center">
-        <Info className="w-4 h-4 mr-1" />
-        Add elements to the form
+      <div className="w-full h-full flex justify-center items-center">
+        <div className="border-2 border-zinc-900/25 p-2 bg-slate-200/25 shadow-md shadow-gray-300">
+          <ul className="list-decimal list-inside font-normal">
+            <span className="font-semibold text block mb-2 italic">
+              <InfoIcon className="w-4 h-4 mr-1 inline" />
+              To add elements to the form.
+            </span>
+            <li>Double click the componenets</li>
+            <li>
+              Use <PlusCircleIcon className="inline w-4 h-4" /> button to add a
+              text field
+            </li>
+            <li>Drag and drop any component</li>
+          </ul>
+        </div>
       </div>
     );
 

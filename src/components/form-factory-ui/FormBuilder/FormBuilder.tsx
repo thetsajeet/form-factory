@@ -22,8 +22,8 @@ export default function FormBuilder() {
   }));
 
   return (
-    <div ref={drop}>
-      <Card className="my-2">
+    <div ref={drop} className="contents">
+      <Card className="flex flex-col my-2 h-full min-h-0">
         <CardHeader>
           <FormHeader />
         </CardHeader>
@@ -31,7 +31,10 @@ export default function FormBuilder() {
         <CardContent
           className={cn(
             "pb-0",
-            isOver ? "border-2 border-dashed border-zinc-900 bg-stone-400" : ""
+            "min-h-0 flex-1 overflow-y-auto",
+            isOver
+              ? "border-2 border-dashed border-zinc-900/50 bg-slate-400/25"
+              : ""
           )}
         >
           <FormStructure />

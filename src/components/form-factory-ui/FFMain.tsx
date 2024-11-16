@@ -22,8 +22,8 @@ export default function FFMain() {
           {currentFormElement ? <EditFormElement /> : <FFDirectory />}
         </ResizablePanel>
         <ResizableHandle withHandle />
-        <ResizablePanel defaultSize={50} minSize={35} className="main flex-1 ">
-          <div className="pt-5 mx-auto w-[500px] h-full overflow-y-auto">
+        <ResizablePanel defaultSize={50} minSize={35} className="main flex-1">
+          <div className="py-5 mx-auto w-[500px] min-h-0 h-full">
             <FormBuilder />
           </div>
         </ResizablePanel>
@@ -31,7 +31,7 @@ export default function FFMain() {
         <ResizablePanel
           defaultSize={25}
           minSize={20}
-          className="bg-slate-50 h-full overflow-y-auto"
+          className="bg-slate-50 h-full"
         >
           <PreviewWindow />
         </ResizablePanel>
