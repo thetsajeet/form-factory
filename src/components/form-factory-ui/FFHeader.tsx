@@ -5,12 +5,15 @@ import { Button } from "../ui/button";
 import useStore from "@/lib/store";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
+import { useRouter } from "next/navigation";
 
 export default function FFHeader() {
   const { formTitle } = useStore();
   const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const router = useRouter();
 
   const handlePublish = () => {
+    router.push("/view_form/1");
     setModalOpen(false);
   };
 

@@ -1,6 +1,5 @@
 "use client";
 
-import useStore from "@/lib/store";
 import { useForm } from "react-hook-form";
 import { Form, FormField } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
@@ -12,16 +11,26 @@ import { FormElement } from "@/models/interfaces/FFElements";
 import FFTextarea from "../FormElements/FFTextarea";
 import FFSwitch from "../FormElements/FFSwitch";
 
-export default function OutputForm() {
-  const formTitle = useStore((state) => state.formTitle);
-  const formDescription = useStore((state) => state.formDescription);
-  const formElements = useStore((state) => state.formElements);
+interface OutputForm {
+  formTitle: string;
+  formDescription: string;
+  formElements: FormElement[];
+  preview: boolean;
+}
+
+// define ouput form type
+export default function OutputForm({
+  formTitle,
+  formDescription,
+  formElements,
+  preview,
+}: OutputForm) {
   const form = useForm({});
 
   // TODO: Unregister or remove the old labels
   // TODO: Change the data type
   const onSubmit = (data: unknown) => {
-    console.log("c", data);
+    if (preview) console.log("Submitted", data);
   };
 
   if (formElements.length === 0)
