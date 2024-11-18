@@ -6,7 +6,6 @@ import useStore from "@/lib/store";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
 import { useRouter } from "next/navigation";
-import FFInput from "./FormElements/FFInput";
 import { Input } from "../ui/input";
 
 export default function FFHeader() {

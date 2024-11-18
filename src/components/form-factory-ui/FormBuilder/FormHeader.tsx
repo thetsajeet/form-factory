@@ -16,6 +16,8 @@ export default function FormHeader() {
           name="formTitle"
           required
           placeholder="Add a title for the form"
+          maxLength={50}
+          className="text-center ring-zinc-900 ring-1"
           onChange={(e) => setFormTitle(e.target.value)}
         />
       </CardTitle>
@@ -26,6 +28,8 @@ export default function FormHeader() {
           name="formDescription"
           placeholder="Add a description for the form"
           required
+          rows={3}
+          className="resize-none ring-zinc-900 ring-1"
           onChange={(e) => setFormDescription(e.target.value)}
         />
       </CardDescription>
