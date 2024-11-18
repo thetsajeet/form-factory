@@ -75,7 +75,7 @@ export default function OutputForm({
               <FFSelect
                 label={label}
                 field={field}
-                options={options!}
+                options={options || []}
                 placeholder={placeholder}
               />
             )}

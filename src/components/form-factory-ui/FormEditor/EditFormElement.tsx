@@ -46,8 +46,8 @@ export default function EditFormElement() {
       if (key === "options") {
         if (data.type !== "select") continue;
 
-        const ops = (value as string) || "";
-        finalData["options"] = ops.split(";");
+        const ops = value as string;
+        finalData["options"] = ops ? ops.split(";") : [];
         continue;
       }
       if (key === "placeholder" && data.type !== "switch")

@@ -22,11 +22,18 @@ export default function FFSelect({
   options,
   placeholder,
 }: FFSelectInterface) {
-  const selectOptionsJSX = options.map((op: string, index: number) => (
-    <SelectItem key={index} value={op}>
-      {op}
+  console.log(options);
+  const selectOptionsJSX = options.length ? (
+    options.map((op: string, index: number) => (
+      <SelectItem key={index} value={op}>
+        {op}
+      </SelectItem>
+    ))
+  ) : (
+    <SelectItem key={0} value={"none"}>
+      No options to show
     </SelectItem>
-  ));
+  );
 
   return (
     <FormItem>
