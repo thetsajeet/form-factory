@@ -87,13 +87,18 @@ export default function FormStructure() {
     switch: <ToggleLeftIcon color="#09090B" />,
   };
 
-  const formElementsJSX = formElements.map((el) => (
+  const formElementsJSX = formElements.map((el, index) => (
     <div
       key={el.id}
       className="border-2 rounded-sm shadow-sm border-slate-700/75 h-[75px] my-5 flex flex-col hover:scale-105 transition-all"
     >
       <div className="w-full h-full flex justify-between">
-        <div className="self-center pl-5">
+        <div className="flex items-start">
+          <div className="block text-center rounded-br-md bg-slate-800 text-slate-100 px-3 py-1">
+            {index + 1}
+          </div>
+        </div>
+        <div className="self-center flex-1 pl-5">
           <div className="flex items-center">
             <span className="mr-2 p-2 rounded-full bg-zinc-400">
               {componentIconDict[el.type]}
@@ -117,8 +122,6 @@ export default function FormStructure() {
             <Trash2Icon className="w-4" />
           </div>
         </div>
-
-        {/* </Button> */}
       </div>
     </div>
   ));
