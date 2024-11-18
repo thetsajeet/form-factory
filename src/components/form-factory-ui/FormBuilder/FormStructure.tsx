@@ -1,7 +1,21 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { InfoIcon, PlusCircleIcon, Trash2Icon, X } from "lucide-react";
+import {
+  ArrowDown01Icon,
+  AtSignIcon,
+  Edit3Icon,
+  Globe2Icon,
+  InfoIcon,
+  LetterTextIcon,
+  MenuIcon,
+  PlusCircleIcon,
+  SquareAsteriskIcon,
+  ToggleLeftIcon,
+  Trash2Icon,
+  TypeIcon,
+  X,
+} from "lucide-react";
 import useStore from "@/lib/store";
 import {
   Dialog,
@@ -52,10 +66,7 @@ export default function FormStructure() {
     setModalOpen({ isOpen: false, metadata: null });
   }
 
-  function openModal(
-    event: React.MouseEvent<HTMLButtonElement>,
-    el: FormElement
-  ) {
+  function openModal(event: React.MouseEvent<HTMLDivElement>, el: FormElement) {
     event.stopPropagation();
     setModalOpen({ isOpen: true, metadata: el });
   }
@@ -64,22 +75,50 @@ export default function FormStructure() {
     selectCurrentFormElement(id);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const componentIconDict: any = {
+    text: <TypeIcon color="#09090B" />,
+    email: <AtSignIcon color="#09090B" />,
+    password: <SquareAsteriskIcon color="#09090B" />,
+    select: <MenuIcon color="#09090B" />,
+    textarea: <LetterTextIcon color="#09090B" />,
+    number: <ArrowDown01Icon color="#09090B" />,
+    url: <Globe2Icon color="#09090B" />,
+    switch: <ToggleLeftIcon color="#09090B" />,
+  };
+
   const formElementsJSX = formElements.map((el) => (
     <div
       key={el.id}
-      className="border-2 rounded-sm shadow-sm border-slate-300 h-[50px] my-5 px-2 flex flex-col justify-center"
-      onClick={() => onSelectElement(el.id)}
+      className="border-2 rounded-sm shadow-sm border-slate-700/75 h-[75px] my-5 flex flex-col hover:scale-105 transition-all"
     >
-      <div className="w-full flex justify-between">
-        <span>{el.label}</span>
-        <Button
-          onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
-            openModal(event, el)
-          }
-          size="sm"
-        >
-          <Trash2Icon />
-        </Button>
+      <div className="w-full h-full flex justify-between">
+        <div className="self-center pl-5">
+          <div className="flex items-center">
+            <span className="mr-2 p-2 rounded-full bg-zinc-400">
+              {componentIconDict[el.type]}
+            </span>
+            <span>{el.label}</span>
+          </div>
+        </div>
+        <div className="flex items-start">
+          <div
+            onClick={() => onSelectElement(el.id)}
+            className="block border border-t-0 border-r-0 border-slate-800 text-center bg-slate-300 hover:bg-slate-800 hover:text-slate-100 cursor-pointer px-1"
+          >
+            <Edit3Icon className="w-4" />
+          </div>
+          <div
+            onClick={(event: React.MouseEvent<HTMLDivElement>) =>
+              openModal(event, el)
+            }
+            className="block border border-t-0 border-r-0 border-slate-800 text-center bg-slate-300 hover:bg-slate-800 hover:text-slate-100 cursor-pointer px-1"
+          >
+            <Trash2Icon className="w-4" />
+          </div>
+        </div>
+
+        {/* </Button> */}
       </div>
     </div>
   ));

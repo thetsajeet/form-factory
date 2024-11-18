@@ -18,7 +18,11 @@ export default function FFTextarea({
     <FormItem>
       <FormLabel className="font-medium text-lg pl-1">{label}</FormLabel>
       <FormControl>
-        <Textarea {...field} placeholder={placeholder} />
+        <Textarea
+          className="resize-none ring-1 ring-slate-500"
+          {...field}
+          placeholder={placeholder}
+        />
       </FormControl>
       <FormDescription>{description}</FormDescription>
       <FormMessage />

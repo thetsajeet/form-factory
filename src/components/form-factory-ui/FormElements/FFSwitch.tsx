@@ -9,7 +9,7 @@ import { FFSwitchInterface } from "@/models/interfaces/FFElements";
 
 export default function FFSwitch({ field, label }: FFSwitchInterface) {
   return (
-    <FormItem className="flex items-center">
+    <FormItem className="flex items-center py-1">
       <FormControl>
         <Switch
           {...field}
