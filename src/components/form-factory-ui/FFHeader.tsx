@@ -10,7 +10,6 @@ import { Input } from "../ui/input";
 
 export default function FFHeader() {
   const { formTitle } = useStore();
-  // const [modalOpen, setModalOpen] = useState<boolean>(false);
   const router = useRouter();
   const [modalParams, setModalParams] = useState<{
     isOpen: boolean;
@@ -100,13 +99,15 @@ export default function FFHeader() {
               <div className="flex flex-col space-y-2">
                 <div className="flex space-x-2">
                   <Input
-                    value="http://localhost:3000/view_form/1"
+                    value={`${process.env.NEXT_PUBLIC_PROJECT_DOMAIN}/view_form/1`}
                     readOnly
                     className="rounded-sm"
                   />
                   <Button
                     onClick={() =>
-                      handleCopy("http://localhost:3000/view_form/1")
+                      handleCopy(
+                        `${process.env.NEXT_PUBLIC_PROJECT_DOMAIN}/view_form/1`
+                      )
                     }
                     type="button"
                     className=""
