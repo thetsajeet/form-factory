@@ -21,8 +21,8 @@ type Action = {
 
 const useStore = create<State & Action>((set, get) => ({
   count: 0,
-  formTitle: "Custom Form",
-  formDescription: "Custom Form Description",
+  formTitle: "My Form",
+  formDescription: "",
   currentFormElement: null,
   formElements: [],
   setFormTitle: (t: string) => set(() => ({ formTitle: t })),
@@ -49,17 +49,13 @@ const useStore = create<State & Action>((set, get) => ({
     }));
   },
   updateFormElement: (el: FormElement) => {
-    const data = get().formElements;
-    const ind = data.findIndex((d) => d.id === el.id);
-    if (ind === -1) return;
+    const { formElements } = get();
+    const updatedEl = formElements.map((fel: FormElement) => {
+      if (fel.id === el.id) return el;
+      return fel;
+    });
 
-    const updateItems: FormElement[] = [
-      ...data.slice(0, ind),
-      { ...el },
-      ...data.slice(ind + 1),
-    ];
-
-    set({ formElements: updateItems });
+    set({ formElements: updatedEl });
   },
   selectCurrentFormElement: (id: string | number | null) => {
     if (!id) return set(() => ({ currentFormElement: null }));

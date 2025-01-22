@@ -39,7 +39,7 @@ export default function FormStructure() {
     metadata: FormElement | null;
   }>({ isOpen: false, metadata: null });
 
-  if (formElements.length === 0)
+  if (!formElements.length)
     return (
       <div className="w-full h-full flex justify-center items-center">
         <div className="border-2 border-zinc-900/25 p-2 bg-slate-200/25 shadow-md shadow-gray-300">
