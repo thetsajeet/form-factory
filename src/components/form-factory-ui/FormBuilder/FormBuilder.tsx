@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardHeader, CardContent, CardFooter } from "../../ui/card";
+import { Card, CardHeader, CardContent } from "../../ui/card";
 import FormStructure from "./FormStructure";
 import FormHeader from "./FormHeader";
 import { Separator } from "@/components/ui/separator";

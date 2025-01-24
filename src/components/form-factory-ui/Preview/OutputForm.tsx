@@ -111,7 +111,7 @@ export default function OutputForm({
   });
 
   return (
-    <div className="w-full flex flex-col">
+    <div className="w-full flex flex-col flex-1">
       <div className="w-full text-center capitalize font-semibold text-lg">
         {formTitle}
       </div>

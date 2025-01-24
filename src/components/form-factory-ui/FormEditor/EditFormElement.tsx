@@ -60,7 +60,7 @@ export default function EditFormElement() {
   };
 
   return (
-    <div className="flex-1 w-full h-full p-2 max-w-[600px] mx-auto bg-white shadow-md border my-2">
+    <div className="flex-1 w-full p-2 max-w-[600px] mx-auto bg-white shadow-md border my-2">
       <div className="flex items-center">
         <span className="text-lg font-medium flex-1">Set form parameters</span>
         <Button
