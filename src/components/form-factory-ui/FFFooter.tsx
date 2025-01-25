@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function FFFooter() {
   return (
-    <div className="flex justify-center align-middle w-full text-zinc-100 py-3 bg-black text-lg">
+    <div className="flex justify-center align-middle w-full text-gray-300 py-3 bg-black text-lg">
       <div>
         Made with{" "}
         <Heart
