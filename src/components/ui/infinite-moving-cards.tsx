@@ -107,11 +107,12 @@ export const InfiniteMovingCards = ({
                       <Image
                         src={
                           item.avatarUrl ||
-                          `https://avatar.iran.liara.run/username?username=[${item.fullName}]`
+                          `https://i.pravatar.cc/24?u=[${item.fullName}]`
                         }
                         alt="avatar"
                         width={24}
                         height={24}
+                        className="rounded-full"
                       />
                     </span>
                     <span className="ml-2 text-md font-medium leading-[1.6] text-gray-400">
