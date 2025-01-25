@@ -1,10 +1,8 @@
 import FFFooter from "@/components/form-factory-ui/FFFooter";
-import SparklesTitleWrapper from "@/components/landing-page/SparklesTitleWrapper";
 import HeroSection from "@/components/landing-page/HeroSection";
 import Navbar from "@/components/landing-page/Navbar";
 import Testimonials from "@/components/landing-page/Testimonials";
 import FeaturesSectionDemo from "@/components/landing-page/Features";
-import { SparklesCore } from "@/components/ui/sparkles";
 
 export default function Home() {
   return (
