@@ -16,7 +16,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="64x64" />
       </head>
-      <body className="flex h-full w-full">{children}</body>
+      <body className="h-full w-full flex">{children}</body>
     </html>
   );
 }
