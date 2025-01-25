@@ -6,8 +6,10 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: [
-      "avatar.iran.liara.run", // Microlink Image Preview
+    remotePatterns: [
+      {
+        hostname: "avatar.iran.liara.run",
+      },
     ],
   },
 };

@@ -1,3 +1,5 @@
+"use client";
+
 import FFFooter from "@/components/form-factory-ui/FFFooter";
 import HeroSection from "@/components/landing-page/HeroSection";
 import Navbar from "@/components/landing-page/Navbar";
@@ -6,14 +8,10 @@ import FeaturesSectionDemo from "@/components/landing-page/Features";
 
 export default function Home() {
   return (
-    <div className="flex-1 flex flex-col bg-black text-white ">
-      {/* navbar */}
+    <div className="flex-1 flex flex-col bg-black text-white scroll-smooth">
       <Navbar />
-      {/* hero */}
       <HeroSection />
-      {/* bento grid */}
-      <div className="flex-1">
-        {/* <SparklesTitleWrapper title="Features"></SparklesTitleWrapper> */}
+      <div id="about" className="flex-1">
         <div className="mx-auto relative">
           <div className="text-5xl text-center mb-4 italic">Features</div>
           <div className="relative w-full mx-auto">
@@ -25,8 +23,7 @@ export default function Home() {
         </div>
         <FeaturesSectionDemo />
       </div>
-      {/* testimonials */}
-      <div className="max-w-full overflow-x-hidden bg-black">
+      <div id="testimonial" className="max-w-full overflow-x-hidden bg-black">
         <div className="text-2xl md:text-4xl italic font-semibold text-center mt-4 tracking-tight py-4">
           Hear what they say!
           <div className="relative w-full mx-auto mt-4">
@@ -38,7 +35,6 @@ export default function Home() {
         </div>
         <Testimonials />
       </div>
-      {/* footer */}
       <FFFooter />
     </div>
   );

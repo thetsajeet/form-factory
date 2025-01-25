@@ -1,10 +1,9 @@
-import React from "react";
 import { Spotlight } from "@/components/ui/spotlight";
 import { SparklesCore } from "../ui/sparkles";
 
 export default function HeroSection() {
   return (
-    <div className="h-[600px] w-full flex flex-col md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
+    <div className="pt-40 pb-10 w-full flex flex-col md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"
         fill="white"
