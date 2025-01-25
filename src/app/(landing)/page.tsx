@@ -1,22 +1,42 @@
 import FFFooter from "@/components/form-factory-ui/FFFooter";
+import SparklesTitleWrapper from "@/components/landing-page/SparklesTitleWrapper";
 import HeroSection from "@/components/landing-page/HeroSection";
 import Navbar from "@/components/landing-page/Navbar";
 import Testimonials from "@/components/landing-page/Testimonials";
-import { LineShadowText } from "@/components/ui/line-shadow-text";
+import FeaturesSectionDemo from "@/components/landing-page/Features";
+import { SparklesCore } from "@/components/ui/sparkles";
 
 export default function Home() {
   return (
-    <div className="flex-1 flex flex-col bg-[#0A0A0A] text-white ">
+    <div className="flex-1 flex flex-col bg-black text-white ">
       {/* navbar */}
       <Navbar />
       {/* hero */}
       <HeroSection />
       {/* bento grid */}
-      <div className="flex-1">bg</div>
+      <div className="flex-1">
+        {/* <SparklesTitleWrapper title="Features"></SparklesTitleWrapper> */}
+        <div className="mx-auto relative">
+          <div className="text-5xl text-center mb-4 italic">Features</div>
+          <div className="relative w-full mx-auto">
+            <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+            <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
+            <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
+            <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+          </div>
+        </div>
+        <FeaturesSectionDemo />
+      </div>
       {/* testimonials */}
       <div className="max-w-full overflow-x-hidden bg-black">
-        <div className="text-2xl md:text-4xl italic font-semibold text-center mt-4 tracking-tight">
+        <div className="text-2xl md:text-4xl italic font-semibold text-center mt-4 tracking-tight py-4">
           Hear what they say!
+          <div className="relative w-full mx-auto mt-4">
+            <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+            <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
+            <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
+            <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+          </div>
         </div>
         <Testimonials />
       </div>
