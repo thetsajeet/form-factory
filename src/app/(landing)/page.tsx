@@ -1,12 +1,13 @@
-import Navbar from "./_components/Navbar";
+import HeroSection from "@/components/landing-page/HeroSection";
+import Navbar from "@/components/landing-page/Navbar";
 
 export default function Home() {
   return (
-    <div className="flex-1 flex flex-col">
+    <div className="flex-1 flex flex-col bg-[#0A0A0A]">
       {/* navbar */}
       <Navbar />
       {/* hero */}
-      <div></div>
+      <HeroSection />
       {/* bento grid */}
       <div>bg</div>
       {/* testimonials */}
