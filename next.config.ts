@@ -5,6 +5,11 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  images: {
+    domains: [
+      "avatar.iran.liara.run", // Microlink Image Preview
+    ],
+  },
 };
 
 export default nextConfig;
