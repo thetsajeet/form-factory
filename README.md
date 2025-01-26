@@ -4,6 +4,10 @@ Create rich sharable forms using drag-and-drop.
 
 ![mockup](/resources/home-page.png)
 
+<video width="100%" height="300" controls>
+  <source src="/resources/Demo.mp4" type="video/mp4">
+</video>
+
 ## Tech stack
 
 - NextJS
