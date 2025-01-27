@@ -36,7 +36,7 @@ export default function FormBuilder() {
               : ""
           )}
         >
-          <FormStructure />
+          <FormStructure isDropping={isOver} />
         </CardContent>
       </Card>
     </div>

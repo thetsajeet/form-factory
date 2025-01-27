@@ -11,7 +11,7 @@ export default function PreviewWindow() {
           form-factory.com
         </div>
       </div>
-      <div className="w-full my-2 flex justify-center text-lg font-medium px-3 flex-1 overflow-y-auto max-w-[600px] mx-auto bg-white border shadow-md rounded-md">
+      <div className="w-full flex justify-center text-lg font-medium px-3 flex-1 overflow-y-auto max-w-[600px] mx-auto bg-white border shadow-md rounded-md">
         <OutputForm
           formTitle={formTitle}
           formElements={formElements}

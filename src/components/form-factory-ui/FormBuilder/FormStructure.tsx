@@ -26,8 +26,13 @@ import {
 } from "@/components/ui/dialog";
 import { useState } from "react";
 import { FormElement } from "@/models/interfaces/FFElements";
+import { cn } from "@/lib/utils";
 
-export default function FormStructure() {
+export default function FormStructure({
+  isDropping,
+}: {
+  isDropping?: boolean;
+}) {
   const formElements = useStore((state) => state.formElements);
   const removeFormElement = useStore((state) => state.removeFormElement);
   const selectCurrentFormElement = useStore(
@@ -41,14 +46,19 @@ export default function FormStructure() {
 
   if (!formElements.length)
     return (
-      <div className="w-full h-full flex justify-center items-center">
+      <div
+        className={cn(
+          "w-full h-full flex justify-center items-center",
+          isDropping && "opacity-15"
+        )}
+      >
         <div className="border-2 border-zinc-900/25 p-2 bg-slate-200/25 shadow-md shadow-gray-300">
           <ul className="list-decimal list-inside font-normal">
             <span className="font-semibold text block mb-2 italic">
               <InfoIcon className="w-4 h-4 mr-1 inline" />
               To add elements to the form.
             </span>
-            <li>Double click the componenets</li>
+            <li>Double click the components</li>
             <li>
               Use <PlusCircleIcon className="inline w-4 h-4" /> button to add a
               text field
