@@ -11,9 +11,15 @@ export default function FFDirectory() {
 
   return (
     <div className="w-full h-full @container p-2">
-      <div className="flex items-center">
-        <span className="text-lg font-medium flex-1">Components</span>
-        <Button variant="ghost" onClick={() => addFormElement()}>
+      <div className="flex items-center relative">
+        <span className="text-lg font-medium flex-1 text-center">
+          Components
+        </span>
+        <Button
+          variant="ghost"
+          className="text-center right-1"
+          onClick={() => addFormElement()}
+        >
           <Plus className="w-4 h-4" />
         </Button>
       </div>

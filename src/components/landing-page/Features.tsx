@@ -1,14 +1,12 @@
 import { cn } from "@/lib/utils";
 import {
-  IconAdjustmentsBolt,
-  IconCloud,
-  IconCurrencyDollar,
-  IconEaseInOut,
-  IconHeart,
-  IconHelp,
-  IconRouteAltLeft,
-  IconTerminal2,
-} from "@tabler/icons-react";
+  Cloud,
+  DollarSign,
+  HelpCircle,
+  MoveUpRight,
+  Store,
+  Terminal,
+} from "lucide-react";
 
 export default function FeaturesSectionDemo() {
   const features = [
@@ -16,46 +14,35 @@ export default function FeaturesSectionDemo() {
       title: "Built for developers",
       description:
         "Built for engineers, developers, dreamers, thinkers and doers.",
-      icon: <IconTerminal2 />,
+      icon: <Terminal />,
     },
     {
       title: "Ease of use",
       description:
-        "It's as easy as using an Apple, and as expensive as buying one.",
-      icon: <IconEaseInOut />,
+        "Super simple way to start creating, sharing and updating forms.",
+      icon: <MoveUpRight />,
     },
     {
       title: "Pricing like no other",
+      description: "Completely free to use.",
+      icon: <DollarSign />,
+    },
+    {
+      title: "Cloud Support",
       description:
-        "Our prices are best in the market. No cap, no lock, no credit card required.",
-      icon: <IconCurrencyDollar />,
+        "With the power of cloud, now store and share forms seemlessly.",
+      icon: <Cloud />,
     },
     {
-      title: "100% Uptime guarantee",
-      description: "We just cannot be taken down by anyone.",
-      icon: <IconCloud />,
-    },
-    {
-      title: "Multi-tenant Architecture",
-      description: "You can simply share passwords instead of buying new seats",
-      icon: <IconRouteAltLeft />,
+      title: "Space",
+      description:
+        "Store 1, 10, 100, 1000, 10000... (you get it) amount of forms all for free!",
+      icon: <Store />,
     },
     {
       title: "24/7 Customer Support",
-      description:
-        "We are available a 100% of the time. Atleast our AI Agents are.",
-      icon: <IconHelp />,
-    },
-    {
-      title: "Money back guarantee",
-      description:
-        "If you donot like EveryAI, we will convince you to like us.",
-      icon: <IconAdjustmentsBolt />,
-    },
-    {
-      title: "And everything else",
-      description: "I just ran out of copy ideas. Accept my sincere apologies",
-      icon: <IconHeart />,
+      description: "We are available a 100% of the time.",
+      icon: <HelpCircle />,
     },
   ];
   return (

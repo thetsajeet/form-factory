@@ -61,11 +61,14 @@ export default function EditFormElement() {
 
   return (
     <div className="flex-1 w-full h-full p-2 mx-auto bg-white shadow-md border my-2">
-      <div className="flex items-center">
-        <span className="text-lg font-medium flex-1">Set form parameters</span>
+      <div className="flex relative">
+        <span className="text-lg text-center font-medium flex-1">
+          Set form parameters
+        </span>
         <Button
           variant="ghost"
           size="sm"
+          className="absolute right-0"
           onClick={() => selectCurrentFormElement(null)}
         >
           <X className="w-4 h-4" />
