@@ -1,11 +1,17 @@
-# Form Factory
+# ![Logo](public/favicon-32x32.png) Form Factory
 
-Create rich sharable forms using drag-and-drop.
+Form Factory is an innovative platform designed to streamline the process of creating and managing forms. By leveraging a user-friendly drag-and-drop interface, Form Factory empowers users to design dynamic forms effortlessly without needing technical expertise. From simple contact forms to complex multi-step workflows, Form Factory offers a robust solution for all form-building needs.
+
+![Landing Page](/resources/home-page.png)
 
 ## Tech stack
 
-- NextJS
-- Tailwindcss
+- NextJS 15
+- React 19
+- Tailwind Css
+- ShadCN
+- MagicUI
+- Aceternity
 
 ## Setup
 
@@ -13,7 +19,7 @@ Create rich sharable forms using drag-and-drop.
 git clone <url>
 cd form-factory
 pnpm install
-npm run dev
+pnpm run dev
 ```
 
 ## More info
