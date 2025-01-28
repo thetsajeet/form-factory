@@ -120,7 +120,7 @@ export default function OutputForm({
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           {formContent}
-          <div className="mt-5 flex flex-col space-y-2">
+          <div className="my-5 flex flex-col space-y-2">
             <Button type="submit">
               Submit <SendHorizonalIcon className="w-5 h-5" />
             </Button>

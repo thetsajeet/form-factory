@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Home } from "lucide-react";
 import { Button } from "../ui/button";
 import useStore from "@/lib/store";
 import { useState } from "react";
@@ -10,6 +10,7 @@ import PublishConfirm from "./FormModals/PublishConfirm";
 import PublishSuccess from "./FormModals/PublishSuccess";
 import { useWindowSize } from "react-use";
 import Confetti from "react-confetti";
+import Link from "next/link";
 
 export default function FFHeader() {
   const { formTitle } = useStore();
@@ -36,10 +37,15 @@ export default function FFHeader() {
           style={{ zIndex: 51 }} // more than the dialog
         />
       )}
-      <div className="w-full py-2 px-5 text-sm flex text-zinc-200 bg-zinc-800 items-center justify-between">
-        <span>
-          <span className="font-semibold">My Form</span> /{" "}
-          <span className="font-bold text-md">{formTitle}</span>
+      <div className="w-full py-2 px-5 text-sm flex text-zinc-200 bg-zinc-800 items-center">
+        <span className="flex flex-1">
+          <Link href="/" className="hover:text-gray-300 mr-3">
+            <Home className="size-5" />
+          </Link>
+          <span>
+            <span className="font-semibold mr-1">My Form</span> /
+            <span className="ml-1 font-bold text-md">{formTitle}</span>
+          </span>
         </span>
         <Button
           size="sm"

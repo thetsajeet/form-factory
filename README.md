@@ -2,8 +2,6 @@
 
 Create rich sharable forms using drag-and-drop.
 
-![mockup](/resources/home-page.png)
-
 ## Tech stack
 
 - NextJS

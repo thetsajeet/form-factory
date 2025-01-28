@@ -4,7 +4,7 @@ import FFMain from "@/components/form-factory-ui/FFMain";
 
 export default function Home() {
   return (
-    <div className="w-full h-full flex flex-col flex-1">
+    <div className="flex-1 flex flex-col h-full">
       <FFormHeader />
       <FFMain />
       <FFFooter />
