@@ -21,13 +21,13 @@ export default function FFMain() {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="hidden lg:flex lg:flex-1">
-        <ResizablePanelGroup className="contents" direction="horizontal">
+      <div className="hidden h-full lg:flex lg:flex-1 overflow-y-hidden">
+        <ResizablePanelGroup direction="horizontal">
           <ResizablePanel
             defaultSize={27}
             minSize={20}
             maxSize={32}
-            className="bg-zinc-50"
+            className="bg-zinc-50 h-full overflow-y-hidden"
           >
             {currentFormElement ? <EditFormElement /> : <FFDirectory />}
           </ResizablePanel>

@@ -30,7 +30,7 @@ export default function FormBuilder() {
         <Separator className="my-1" />
         <CardContent
           className={cn(
-            "pb-0 min-h-0 flex-1 overflow-y-auto my-2",
+            "min-h-0 flex-1 overflow-y-auto my-2",
             isOver
               ? "border-2 border-dashed border-zinc-900/50 bg-slate-400/25"
               : ""

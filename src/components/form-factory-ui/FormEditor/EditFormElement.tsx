@@ -75,7 +75,7 @@ export default function EditFormElement() {
         </Button>
       </div>
       <Separator className="bg-zinc-900 my-2" />
-      <div className="space-y-4">
+      <div className="space-y-4 max-w-[450px] mx-auto">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
