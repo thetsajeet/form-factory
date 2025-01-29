@@ -1,18 +1,21 @@
 "use client";
 
-import { ArrowRight, Home } from "lucide-react";
+import { Menu, Send } from "lucide-react";
 import { Button } from "../ui/button";
 import useStore from "@/lib/store";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Dialog, DialogContent } from "../ui/dialog";
 import { useRouter } from "next/navigation";
 import PublishConfirm from "./FormModals/PublishConfirm";
 import PublishSuccess from "./FormModals/PublishSuccess";
 import { useWindowSize } from "react-use";
 import Confetti from "react-confetti";
-import Link from "next/link";
 
-export default function FFHeader() {
+export default function FFHeader({
+  toggleSidebar,
+}: {
+  toggleSidebar: Dispatch<SetStateAction<boolean>>;
+}) {
   const { formTitle } = useStore();
   const { width, height } = useWindowSize();
   const router = useRouter();
@@ -38,10 +41,14 @@ export default function FFHeader() {
         />
       )}
       <div className="w-full py-2 px-5 text-sm flex text-zinc-200 bg-zinc-800 items-center">
-        <span className="flex flex-1">
-          <Link href="/" className="hover:text-gray-300 mr-3">
-            <Home className="size-5" />
-          </Link>
+        <span className="flex flex-1 items-center">
+          <Button
+            variant="link"
+            className="text-zinc-200 group mx-0 px-0"
+            onClick={() => toggleSidebar((p) => !p)}
+          >
+            <Menu className="size-5 mr-3 group-hover:scale-150 duration-150" />
+          </Button>
           <span>
             <span className="font-semibold mr-1">My Form</span> /
             <span className="ml-1 font-bold text-md">{formTitle}</span>
@@ -55,7 +62,7 @@ export default function FFHeader() {
             setModalParams({ isOpen: true, type: "publishConfirm" })
           }
         >
-          Publish <ArrowRight />
+          Publish <Send />
         </Button>
         <Dialog open={modalParams.isOpen}>
           <DialogContent className="z-[52]">
