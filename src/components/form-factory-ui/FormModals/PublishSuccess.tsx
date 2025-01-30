@@ -10,6 +10,7 @@ import { X, CopyIcon } from "lucide-react";
 interface PublishSuccessProps {
   handleClose: () => void;
   handleSuccess: () => void;
+  formId: string;
 }
 
 const handleCopy = async (url: string) => {
@@ -23,6 +24,7 @@ const handleCopy = async (url: string) => {
 export default function PublishSuccess({
   handleClose,
   handleSuccess,
+  formId,
 }: PublishSuccessProps) {
   return (
     <div className="contents">
@@ -38,14 +40,14 @@ export default function PublishSuccess({
       <div className="flex flex-col space-y-2">
         <div className="flex space-x-2">
           <Input
-            value={`${process.env.NEXT_PUBLIC_PROJECT_DOMAIN}/view_form/1`}
+            value={`${process.env.NEXT_PUBLIC_PROJECT_DOMAIN}/view_form/${formId}`}
             readOnly
             className="rounded-sm"
           />
           <Button
             onClick={() =>
               handleCopy(
-                `${process.env.NEXT_PUBLIC_PROJECT_DOMAIN}/view_form/1`
+                `${process.env.NEXT_PUBLIC_PROJECT_DOMAIN}/view_form/${formId}`
               )
             }
             type="button"

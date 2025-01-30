@@ -3,6 +3,7 @@ import { v4 as uuid } from "uuid";
 import { FormElement, FormElementTypes } from "@/models/interfaces/FFElements";
 
 type State = {
+  formId: string;
   formTitle: string;
   formDescription: string;
   currentFormElement: FormElement | null;
@@ -21,6 +22,7 @@ type Action = {
 
 const useStore = create<State & Action>((set, get) => ({
   count: 0,
+  formId: "",
   formTitle: "My Form",
   formDescription: "",
   currentFormElement: null,
@@ -38,6 +40,8 @@ const useStore = create<State & Action>((set, get) => ({
       options: [],
     };
     set((state) => ({
+      // create form id in server while saving
+      formId: state.formId || uuid(),
       count: state.count + 1,
       formElements: [...state.formElements, newElement],
       currentFormElement: newElement,

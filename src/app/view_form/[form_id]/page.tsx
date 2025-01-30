@@ -1,13 +1,29 @@
 "use client";
 
 import OutputForm from "@/components/form-factory-ui/Preview/OutputForm";
-import useStore from "@/lib/store";
+import { FormElement } from "@/models/interfaces/FFElements";
 import Link from "next/link";
-// import { useParams } from "next/navigation";
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Page({}) {
-  const { formTitle, formElements, formDescription } = useStore();
-  // const params = useParams<{ form_id: string }>();
+  const params = useParams<{ form_id: string }>();
+  const [formElements, setFormElements] = useState<FormElement[]>(
+    [] as FormElement[]
+  );
+  const [formMetadata, setFormMetadata] = useState<{
+    formTitle: string;
+    formDescription: string;
+  }>({ formTitle: "", formDescription: "" });
+
+  useEffect(() => {
+    const jsonString = sessionStorage.getItem(params.form_id);
+    if (!jsonString) return;
+    const data = JSON.parse(jsonString);
+    setFormElements(data.formElements);
+    setFormMetadata(data.formMetadata);
+  }, [params]);
+
   return (
     <div className="flex flex-col flex-1 main">
       <Link href="/">
@@ -17,9 +33,9 @@ export default function Page({}) {
       </Link>
       <div className="flex-1 w-full h-full max-w-2xl mx-auto px-4 mt-2 bg-white shadow-lg border">
         <OutputForm
-          formTitle={formTitle}
+          formTitle={formMetadata.formTitle}
           formElements={formElements}
-          formDescription={formDescription}
+          formDescription={formMetadata.formDescription}
           preview={false}
         />
       </div>

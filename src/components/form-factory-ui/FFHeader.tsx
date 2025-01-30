@@ -16,7 +16,7 @@ export default function FFHeader({
 }: {
   toggleSidebar: Dispatch<SetStateAction<boolean>>;
 }) {
-  const { formTitle } = useStore();
+  const { formTitle, formElements, formId, formDescription } = useStore();
   const { width, height } = useWindowSize();
   const router = useRouter();
   const [modalParams, setModalParams] = useState<{
@@ -25,6 +25,22 @@ export default function FFHeader({
   }>({
     isOpen: false,
   });
+  const saveToSession = (formId: string, formElements: any) => {
+    try {
+      sessionStorage.setItem(
+        formId,
+        JSON.stringify({
+          formElements,
+          formMetadata: {
+            formTitle,
+            formDescription,
+          },
+        })
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const [confetti, toggleConfetti] = useState<boolean>(false);
 
@@ -72,6 +88,7 @@ export default function FFHeader({
                 handleSuccess={() => {
                   setModalParams({ isOpen: true, type: "publishRedirect" });
                   toggleConfetti(true);
+                  saveToSession(formId, formElements);
                 }}
               />
             )}
@@ -84,8 +101,9 @@ export default function FFHeader({
                   }}
                   handleSuccess={() => {
                     toggleConfetti(false);
-                    router.push("/view_form/1");
+                    router.push(`/view_form/${formId}`);
                   }} // get form id from backend
+                  formId={formId}
                 />
               </>
             )}
