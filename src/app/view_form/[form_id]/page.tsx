@@ -2,6 +2,7 @@
 
 import OutputForm from "@/components/form-factory-ui/Preview/OutputForm";
 import { FormElement } from "@/models/interfaces/FFElements";
+import { trpc } from "@/server/trpc/client";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -15,14 +16,20 @@ export default function Page({}) {
     formTitle: string;
     formDescription: string;
   }>({ formTitle: "", formDescription: "" });
+  const { data } = trpc.forms.getForm.useQuery({
+    formId: params.form_id,
+  });
 
   useEffect(() => {
-    const jsonString = sessionStorage.getItem(params.form_id);
-    if (!jsonString) return;
-    const data = JSON.parse(jsonString);
-    setFormElements(data.formElements);
-    setFormMetadata(data.formMetadata);
-  }, [params]);
+    // const jsonString = sessionStorage.getItem(params.form_id);
+    // if (!jsonString) return;
+    // const data = JSON.parse(jsonString);
+    // setFormElements(data.formElements);
+    // setFormMetadata(data.formMetadata);
+    console.log(data);
+  }, [data]);
+
+  if (!data) return <div>Loading form...</div>;
 
   return (
     <div className="flex flex-col flex-1 main">
