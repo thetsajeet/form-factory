@@ -16,7 +16,7 @@ export default function FFHeader({
 }: {
   toggleSidebar: Dispatch<SetStateAction<boolean>>;
 }) {
-  const { formTitle } = useStore();
+  const { formTitle, formId, formDescription, formElements } = useStore();
   const { width, height } = useWindowSize();
   const router = useRouter();
   const [modalParams, setModalParams] = useState<{
@@ -72,20 +72,28 @@ export default function FFHeader({
                 handleSuccess={() => {
                   setModalParams({ isOpen: true, type: "publishRedirect" });
                   toggleConfetti(true);
+                  const form = {
+                    id: formId,
+                    elements: formElements,
+                    title: formTitle,
+                    description: formDescription,
+                  };
+                  localStorage.setItem(formId, JSON.stringify(form));
                 }}
               />
             )}
             {modalParams.isOpen && modalParams.type === "publishRedirect" && (
               <>
                 <PublishSuccess
+                  id={formId}
                   handleClose={() => {
                     toggleConfetti(false);
                     setModalParams({ isOpen: false });
                   }}
                   handleSuccess={() => {
                     toggleConfetti(false);
-                    router.push("/view_form/1");
-                  }} // get form id from backend
+                    router.push(`/view_form/${formId}`);
+                  }}
                 />
               </>
             )}

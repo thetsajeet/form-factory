@@ -1,13 +1,28 @@
 "use client";
 
 import OutputForm from "@/components/form-factory-ui/Preview/OutputForm";
-import useStore from "@/lib/store";
+import { FormElement } from "@/models/interfaces/FFElements";
 import Link from "next/link";
-// import { useParams } from "next/navigation";
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Page({}) {
-  const { formTitle, formElements, formDescription } = useStore();
-  // const params = useParams<{ form_id: string }>();
+  const params = useParams<{ form_id: string }>();
+  const [form, setForm] = useState<{
+    title: string;
+    description: string;
+    elements: FormElement[];
+  } | null>(null);
+
+  useEffect(() => {
+    const formJSON = localStorage.getItem(params.form_id);
+    if (!formJSON) return;
+    const formObj = JSON.parse(formJSON);
+    setForm(formObj);
+  }, [params.form_id]);
+
+  if (!form) return <div>no form to show</div>;
+
   return (
     <div className="flex flex-col flex-1 main">
       <Link href="/">
@@ -17,9 +32,9 @@ export default function Page({}) {
       </Link>
       <div className="flex-1 w-full h-full max-w-2xl mx-auto px-4 mt-2 bg-white shadow-lg border">
         <OutputForm
-          formTitle={formTitle}
-          formElements={formElements}
-          formDescription={formDescription}
+          formTitle={form.title}
+          formElements={form.elements}
+          formDescription={form.description}
           preview={false}
         />
       </div>
