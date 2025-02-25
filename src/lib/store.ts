@@ -3,6 +3,7 @@ import { v4 as uuid } from "uuid";
 import { FormElement, FormElementTypes } from "@/models/interfaces/FFElements";
 
 type State = {
+  formId: string;
   formTitle: string;
   formDescription: string;
   currentFormElement: FormElement | null;
@@ -21,6 +22,7 @@ type Action = {
 
 const useStore = create<State & Action>((set, get) => ({
   count: 0,
+  formId: uuid(),
   formTitle: "My Form",
   formDescription: "",
   currentFormElement: null,
